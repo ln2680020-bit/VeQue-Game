@@ -89,7 +89,7 @@ function load(){try{const saved=JSON.parse(localStorage.getItem('nt3'));if(saved
  if(saved.map.length===H&&saved.map[0].length===W){map=saved.map;crops=saved.crops||{};P=saved.P;st=saved.st;return true}
  const oldMap=saved.map,oldCrops=saved.crops||{},oldP=saved.P,oldSt=saved.st;
  fresh();
- for(let y=0;y<Math.min(oldMap.length,H);y++)for(let x=0;x<Math.min((oldMap[y]||[]).length,W);x++)map[y][x]=oldMap[y][x];
+ for(let y=2;y<Math.min(oldMap.length-2,H);y++)for(let x=2;x<Math.min((oldMap[y]||[]).length-2,W);x++)map[y][x]=oldMap[y][x];
  crops=oldCrops;P=oldP;st=oldSt;return true
  }}catch(e){}return false}
 if(!load())fresh();
